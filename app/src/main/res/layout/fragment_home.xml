@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2C2C2C"
     tools:context=".presentation.home.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:spanCount="1"
-        tools:listitem="@layout/book_item" />
+        tools:listitem="@layout/book_item"
+        />
 
 </LinearLayout>

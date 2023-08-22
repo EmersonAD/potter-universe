@@ -4,9 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.emersonsouza.potteruniverse.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.emersonsouza.potteruniverse.presentation.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+
 </navigation>
