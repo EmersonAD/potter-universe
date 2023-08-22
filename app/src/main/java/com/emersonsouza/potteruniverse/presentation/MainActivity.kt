@@ -1,4 +1,4 @@
-package com.emersonsouza.potteruniverse
+package com.emersonsouza.potteruniverse.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
