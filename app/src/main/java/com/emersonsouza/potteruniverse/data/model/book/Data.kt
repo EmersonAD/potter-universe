@@ -17,3 +17,7 @@ data class Data(
     @SerializedName("type")
     val type: String
 ): Parcelable
+
+data class DataEntity(
+    val attributes: AttributesEntity
+)

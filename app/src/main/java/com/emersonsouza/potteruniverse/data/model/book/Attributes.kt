@@ -29,3 +29,15 @@ data class Attributes(
     @SerializedName("wiki")
     val wiki: String
 ): Parcelable
+
+@Parcelize
+data class AttributesEntity(
+    val author: String,
+    val order: Int,
+    val pages: Int,
+    val releaseDate: String,
+    val summary: String,
+    val title: String,
+    val cover: String,
+    val wiki: String
+) : Parcelable
