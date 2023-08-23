@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Potter Universe"
 include ':app'
+include ':core'
