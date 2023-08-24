@@ -15,7 +15,6 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:spanCount="1"
-        tools:listitem="@layout/book_item"
-        />
+        tools:listitem="@layout/book_item" />
 
 </LinearLayout>

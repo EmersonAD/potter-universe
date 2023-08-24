@@ -6,7 +6,7 @@ import com.emersonsouza.potteruniverse.data.model.book.Data
 import com.emersonsouza.potteruniverse.data.model.book.DataEntity
 
 object MapperBookResponse {
-    fun convertToEntityList(data: List<Data>) = data.map {
+    fun List<Data>.convertToEntityList() = this.map {
         DataEntity(attributes = it.attributes.toEntity())
     }
 

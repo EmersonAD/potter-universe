@@ -1,4 +1,4 @@
-package com.emersonsouza.potteruniverse.domain.di.repository
+package com.emersonsouza.potteruniverse.domain.di.module
 
 import com.emersonsouza.potteruniverse.data.repository.book.BookRepositoryImpl
 import com.emersonsouza.potteruniverse.domain.repository.book.BookRepository
