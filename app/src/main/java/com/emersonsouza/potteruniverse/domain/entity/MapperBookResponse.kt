@@ -1,13 +1,14 @@
 package com.emersonsouza.potteruniverse.domain.entity
 
 import com.emersonsouza.potteruniverse.data.model.book.Attributes
-import com.emersonsouza.potteruniverse.data.model.book.AttributesEntity
 import com.emersonsouza.potteruniverse.data.model.book.Data
-import com.emersonsouza.potteruniverse.data.model.book.DataEntity
 
 object MapperBookResponse {
     fun List<Data>.convertToEntityList() = this.map {
-        DataEntity(attributes = it.attributes.toEntity())
+        DataEntity(
+            id = it.id,
+            attributes = it.attributes.toEntity()
+        )
     }
 
     private fun Attributes.toEntity(): AttributesEntity {

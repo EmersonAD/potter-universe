@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
 interface BookRepository {
-    suspend fun getAllBooks(): Response<Flow<BookResponse>>
+    suspend fun getAllBooks(): BookResponse
 }

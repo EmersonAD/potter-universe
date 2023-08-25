@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
     id 'com.google.dagger.hilt.android'
 }
 
@@ -68,13 +69,16 @@ dependencies {
     //OkHttp3
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
 
-    // For instrumentation tests
-    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.47'
-    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.47'
+    //Coil
+    implementation 'io.coil-kt:coil:2.4.0'
 
-    // For local unit tests
-    testImplementation 'com.google.dagger:hilt-android-testing:2.47'
-    kaptTest 'com.google.dagger:hilt-compiler:2.47'
+//    // For instrumentation tests
+//    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.47'
+//    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.47'
+//
+//    // For local unit tests
+//    testImplementation 'com.google.dagger:hilt-android-testing:2.47'
+//    kaptTest 'com.google.dagger:hilt-compiler:2.47'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

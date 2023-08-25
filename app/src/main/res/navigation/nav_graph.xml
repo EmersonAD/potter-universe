@@ -23,6 +23,10 @@
         android:id="@+id/detailsFragment"
         android:name="com.emersonsouza.potteruniverse.presentation.details.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="details"
+            app:argType="com.emersonsouza.potteruniverse.domain.entity.AttributesEntity" />
+    </fragment>
 
 </navigation>

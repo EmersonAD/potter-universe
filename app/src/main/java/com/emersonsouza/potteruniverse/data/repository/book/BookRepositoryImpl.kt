@@ -8,5 +8,5 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class BookRepositoryImpl @Inject constructor(private val service: PotterService) : BookRepository {
-    override suspend fun getAllBooks(): Response<Flow<BookResponse>> = service.getAllBooks()
+    override suspend fun getAllBooks(): BookResponse = service.getAllBooks()
 }

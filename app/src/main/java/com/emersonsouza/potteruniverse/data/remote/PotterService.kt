@@ -6,7 +6,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface PotterService {
-
     @GET("/v1/books")
-    suspend fun getAllBooks(): Response<Flow<BookResponse>>
+    suspend fun getAllBooks(): BookResponse
 }
