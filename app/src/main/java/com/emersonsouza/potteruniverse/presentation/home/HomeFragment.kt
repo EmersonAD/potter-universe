@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.emersonsouza.core.state.Status
 import com.emersonsouza.potteruniverse.databinding.FragmentHomeBinding
 import com.emersonsouza.potteruniverse.domain.entity.AttributesEntity
 import com.emersonsouza.potteruniverse.presentation.home.adapter.BookAdapter
 import com.emersonsouza.potteruniverse.presentation.home.viewmodel.HomeViewModel
+import com.google.android.material.transition.MaterialElevationScale
+import com.google.android.material.transition.MaterialFadeThrough
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,7 +27,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
-    private lateinit var bookAdapter: BookAdapter
+    private val bookAdapter: BookAdapter = BookAdapter(::openDetails)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +39,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
         initAdapter()
         getAllBooks()
     }
@@ -57,16 +63,23 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        bookAdapter = BookAdapter(::openDetails)
         binding.rvBooks.apply {
+            isTransitionGroup = true
             adapter = bookAdapter
             setHasFixedSize(true)
         }
     }
 
-    private fun openDetails(attributesEntity: AttributesEntity) {
-            findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToDetailsFragment(attributesEntity)
-            )
+    private fun openDetails(cardView: View, attributesEntity: AttributesEntity) {
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = 500L
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = 500L
+        }
+
+        val extras = FragmentNavigatorExtras(cardView to cardView.transitionName)
+        val directions = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(attributesEntity)
+        findNavController().navigate(navigatorExtras = extras, directions = directions)
     }
 }

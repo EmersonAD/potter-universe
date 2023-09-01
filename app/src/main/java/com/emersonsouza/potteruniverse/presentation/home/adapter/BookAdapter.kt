@@ -1,13 +1,15 @@
 package com.emersonsouza.potteruniverse.presentation.home.adapter
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.emersonsouza.potteruniverse.domain.entity.AttributesEntity
 import com.emersonsouza.potteruniverse.domain.entity.DataEntity
+import kotlin.reflect.KFunction2
 
 class BookAdapter(
-    private val onClickLister: (book: AttributesEntity) -> Unit,
+    private val onClickLister: (View, AttributesEntity) -> Unit,
 ) : ListAdapter<DataEntity, BookViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -15,7 +17,9 @@ class BookAdapter(
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it.attributes) }
+        getItem(position)?.let {
+            holder.bind(it.attributes)
+        }
     }
 
     companion object {

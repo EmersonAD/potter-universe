@@ -20,7 +20,8 @@ object MapperBookResponse {
             summary = this.summary,
             title = this.title,
             cover = this.cover,
-            wiki = this.wiki
+            wiki = this.wiki,
+            dedication = this.dedication
         )
     }
 }

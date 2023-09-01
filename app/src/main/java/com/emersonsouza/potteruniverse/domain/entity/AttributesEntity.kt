@@ -13,4 +13,6 @@ data class AttributesEntity(
     val title: String,
     val cover: String,
     val wiki: String,
-) : Parcelable
+    val dedication: String
+) : Parcelable {
+}
