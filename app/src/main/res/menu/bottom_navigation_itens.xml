@@ -8,5 +8,9 @@
             android:title="@string/books"
             android:icon="@drawable/ic_menu_book"
             app:showAsAction="always" />
+        <item android:id="@+id/characterFragment"
+            android:title="Characters"
+            android:icon="@drawable/character"
+            app:showAsAction="always"/>
     </group>
 </menu>

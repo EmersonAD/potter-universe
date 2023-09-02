@@ -3,13 +3,11 @@ package com.emersonsouza.potteruniverse.presentation.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.emersonsouza.potteruniverse.R
 import com.emersonsouza.potteruniverse.databinding.BookItemBinding
-import com.emersonsouza.potteruniverse.domain.entity.AttributesEntity
+import com.emersonsouza.potteruniverse.domain.entity.book.AttributesEntity
 
 class BookViewHolder(
     private val bookItemBinding: BookItemBinding,

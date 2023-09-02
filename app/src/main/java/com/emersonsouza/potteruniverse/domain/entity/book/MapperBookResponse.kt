@@ -1,4 +1,4 @@
-package com.emersonsouza.potteruniverse.domain.entity
+package com.emersonsouza.potteruniverse.domain.entity.book
 
 import com.emersonsouza.potteruniverse.data.model.book.Attributes
 import com.emersonsouza.potteruniverse.data.model.book.Data

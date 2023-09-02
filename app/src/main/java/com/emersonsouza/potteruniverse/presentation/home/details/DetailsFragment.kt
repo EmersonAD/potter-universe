@@ -1,4 +1,4 @@
-package com.emersonsouza.potteruniverse.presentation.details
+package com.emersonsouza.potteruniverse.presentation.home.details
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,10 +15,12 @@ import androidx.core.content.res.use
 import androidx.core.view.ViewCompat
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.emersonsouza.potteruniverse.R
 import com.emersonsouza.potteruniverse.databinding.FragmentDetailsBinding
+import com.emersonsouza.potteruniverse.presentation.home.HomeFragmentDirections
 import com.emersonsouza.potteruniverse.util.extension.themeColor
 import com.google.android.material.R.*
 import com.google.android.material.transition.MaterialContainerTransform
@@ -27,7 +29,7 @@ import kotlin.LazyThreadSafetyMode.NONE
 class DetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailsBinding
-    private val args: DetailsFragmentArgs by navArgs()
+    private val args: com.emersonsouza.potteruniverse.presentation.details.DetailsFragmentArgs by navArgs()
     private val title: String by lazy(NONE) { args.details.title }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +37,7 @@ class DetailsFragment : Fragment() {
 
         sharedElementEnterTransition = MaterialContainerTransform().apply {
             drawingViewId = R.id.nav_host_fragment
-            duration = 500L
+            duration = 300L
             scrimColor = Color.TRANSPARENT
             setAllContainerColors(requireContext().themeColor(attr.colorSurface))
         }
@@ -55,8 +57,16 @@ class DetailsFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
+        setToolbar()
         setSharedElement()
         fetchDetails()
+    }
+
+    private fun setToolbar() = with(binding.bookToolbar) {
+        toolbar.setNavigationIcon(R.drawable.ic_back_black)
+        toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setSharedElement() {

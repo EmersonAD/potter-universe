@@ -1,10 +1,8 @@
 package com.emersonsouza.potteruniverse.domain.usecase.book
 
 import com.emersonsouza.core.state.State
-import com.emersonsouza.potteruniverse.data.model.book.BookResponse
-import com.emersonsouza.potteruniverse.domain.entity.AttributesEntity
-import com.emersonsouza.potteruniverse.domain.entity.DataEntity
-import com.emersonsouza.potteruniverse.domain.entity.MapperBookResponse.convertToEntityList
+import com.emersonsouza.potteruniverse.domain.entity.book.DataEntity
+import com.emersonsouza.potteruniverse.domain.entity.book.MapperBookResponse.convertToEntityList
 import com.emersonsouza.potteruniverse.domain.repository.book.BookRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

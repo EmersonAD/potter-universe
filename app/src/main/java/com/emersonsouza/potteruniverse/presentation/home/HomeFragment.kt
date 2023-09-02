@@ -14,11 +14,10 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.emersonsouza.core.state.Status
 import com.emersonsouza.potteruniverse.databinding.FragmentHomeBinding
-import com.emersonsouza.potteruniverse.domain.entity.AttributesEntity
+import com.emersonsouza.potteruniverse.domain.entity.book.AttributesEntity
 import com.emersonsouza.potteruniverse.presentation.home.adapter.BookAdapter
 import com.emersonsouza.potteruniverse.presentation.home.viewmodel.HomeViewModel
 import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.MaterialFadeThrough
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -72,10 +71,10 @@ class HomeFragment : Fragment() {
 
     private fun openDetails(cardView: View, attributesEntity: AttributesEntity) {
         exitTransition = MaterialElevationScale(false).apply {
-            duration = 500L
+            duration = 300L
         }
         reenterTransition = MaterialElevationScale(true).apply {
-            duration = 500L
+            duration = 300L
         }
 
         val extras = FragmentNavigatorExtras(cardView to cardView.transitionName)
